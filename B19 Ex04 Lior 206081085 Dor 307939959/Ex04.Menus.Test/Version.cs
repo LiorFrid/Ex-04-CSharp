@@ -13,7 +13,7 @@ namespace Ex04.Menus.Test
 		{
 			PrintVersion();
 		}
-		public void PrintVersion()
+		public static void PrintVersion()
 		{
 			System.Console.WriteLine("Version: 19.2.4.32");
 		}

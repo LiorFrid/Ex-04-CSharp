@@ -12,7 +12,7 @@ namespace Ex04.Menus.Test
 		{
 			DigCount();
 		}
-		public void DigCount()
+		public static void DigCount()
 		{
 			Console.WriteLine("please enter a string");
 			string userInput = Console.ReadLine();
