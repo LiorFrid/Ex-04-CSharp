@@ -56,7 +56,9 @@ namespace Ex04.Menus.Delegates
 		{
 			if (m_SubMenu == null)
 			{
-				invoke();
+				onChoose();
+				Console.WriteLine();
+				Console.WriteLine("0. Back");
 			}
 			else
 			{
@@ -78,14 +80,12 @@ namespace Ex04.Menus.Delegates
 				}
 			}
 		}
-		private void invoke()
+		private void onChoose()
 		{
 			if(Choosed!=null)
 			{
 				Choosed.Invoke();
 			}
-			Console.WriteLine();
-			Console.WriteLine("0. Back");
 		}
 	
 	}
