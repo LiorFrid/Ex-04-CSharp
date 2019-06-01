@@ -4,14 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ex04.Menus.Interfaces;
+
 namespace Ex04.Menus.Test
 {
-	public class CountDig : MethodInvoker
+	public class CountDig : IMethodInvoker
 	{
-		public void invoke()
-		{
-			DigCount();
-		}
 		public static void DigCount()
 		{
 			Console.WriteLine("please enter a string");
@@ -24,7 +21,13 @@ namespace Ex04.Menus.Test
 					counter++;
 				}
 			}
+
 			Console.WriteLine("There are {0} digit in your string", counter);
+		}
+
+		public void invoke()
+		{
+			DigCount();
 		}
 	}
 }

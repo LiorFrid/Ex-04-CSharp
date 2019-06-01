@@ -7,15 +7,16 @@ using Ex04.Menus.Interfaces;
 
 namespace Ex04.Menus.Test
 {
-	public class Version : MethodInvoker
+	public class Version : IMethodInvoker
 	{
-		public void invoke()
-		{
-			PrintVersion();
-		}
 		public static void PrintVersion()
 		{
 			System.Console.WriteLine("Version: 19.2.4.32");
+		}
+
+		public void invoke()
+		{
+			PrintVersion();
 		}
 	}
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Ex04.Menus.Delegates
 {
 	public delegate void Method();
+
 	public class MenuItemDelegate
 	{
 		public event Method Choosed;
@@ -25,8 +26,10 @@ namespace Ex04.Menus.Delegates
 			{
 				m_SubMenu = new MenuItemDelegate[i_NumOfItems];
 			}
+
 			m_Level = i_Level;
 		}
+
 		public int Level
 		{
 			get
@@ -34,17 +37,20 @@ namespace Ex04.Menus.Delegates
 				return m_Level;
 			}
 		}
+
 		public string Text
 		{
 			get
 			{
 				return m_Text;
 			}
+
 			set
 			{
 				m_Text = value;
 			}
 		}
+
 		public MenuItemDelegate[] SubMenu
 		{
 			get
@@ -52,6 +58,7 @@ namespace Ex04.Menus.Delegates
 				return m_SubMenu;
 			}
 		}
+
 		public void ShowMenu()
 		{
 			if (m_SubMenu == null)
@@ -69,6 +76,7 @@ namespace Ex04.Menus.Delegates
 					Console.WriteLine("{0}. {1}", index, i.m_Text);
 					index++;
 				}
+
 				Console.WriteLine();
 				if (m_Level == 0)
 				{
@@ -80,14 +88,13 @@ namespace Ex04.Menus.Delegates
 				}
 			}
 		}
+
 		private void onChoose()
 		{
-			if(Choosed!=null)
+			if (Choosed != null)
 			{
 				Choosed.Invoke();
 			}
 		}
-	
 	}
 }
-

@@ -63,11 +63,6 @@ namespace Ex04.Menus.Test
 
 			Console.Clear();
 			Console.WriteLine("Bye Bye");
-
-
-
-
-
 		}
 	}
 }

@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-
 namespace Ex04.Menus.Interfaces
 {
 	public class MenuInterface
 	{
 		private Stack<MenuItemInterface> m_StackOfMenus = new Stack<MenuItemInterface>();
 		private MenuItemInterface m_MainMenu;
+
 		public MenuInterface(int i_NumOfOptions)
 		{
 			m_MainMenu = new MenuItemInterface(i_NumOfOptions, 0);
 			m_StackOfMenus.Push(m_MainMenu);
 		}
+
 		public void Show()
 		{
 			bool finishLoop = false;
@@ -34,9 +35,13 @@ namespace Ex04.Menus.Interfaces
 					if (input == 0)
 					{
 						if (m_StackOfMenus.Peek().Level == 0)
+						{
 							finishLoop = true;
+						}
 						else
+						{
 							m_StackOfMenus.Pop();
+						}
 					}
 					else
 					{
@@ -45,6 +50,7 @@ namespace Ex04.Menus.Interfaces
 				}
 			}
 		}
+
 		private int numOfOptionOfUser(int i_Options)
 		{
 			int userInput = 0;
@@ -61,8 +67,10 @@ namespace Ex04.Menus.Interfaces
 					Console.WriteLine(ex.Message);
 				}
 			}
+
 			return userInput;
 		}
+
 		private int getInputFromUser(int i_Options)
 		{
 			int userInputInt = 0;
@@ -75,14 +83,16 @@ namespace Ex04.Menus.Interfaces
 			{
 				throw new Exception("Invalid choice");
 			}
+
 			valid = userInputInt < 0 || userInputInt > i_Options;
 			if (valid)
 			{
 				throw new Exception("Out of range");
 			}
-			return userInputInt;
 
+			return userInputInt;
 		}
+
 		public MenuItemInterface MainMenu
 		{
 			get

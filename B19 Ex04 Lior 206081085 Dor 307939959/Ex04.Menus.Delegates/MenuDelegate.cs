@@ -10,11 +10,13 @@ namespace Ex04.Menus.Delegates
 	{
 		private Stack<MenuItemDelegate> m_StackOfMenus = new Stack<MenuItemDelegate>();
 		private MenuItemDelegate m_MainMenu;
+
 		public MenuDelegate(int i_NumOfOptions)
 		{
 			m_MainMenu = new MenuItemDelegate(i_NumOfOptions, 0);
 			m_StackOfMenus.Push(m_MainMenu);
 		}
+
 		public void Show()
 		{
 			bool finishLoop = false;
@@ -34,9 +36,13 @@ namespace Ex04.Menus.Delegates
 					if (input == 0)
 					{
 						if (m_StackOfMenus.Peek().Level == 0)
+						{
 							finishLoop = true;
+						}
 						else
+						{
 							m_StackOfMenus.Pop();
+						}
 					}
 					else
 					{
@@ -45,6 +51,7 @@ namespace Ex04.Menus.Delegates
 				}
 			}
 		}
+	
 		private int numOfOptionOfUser(int i_Options)
 		{
 			int userInput = 0;
@@ -61,8 +68,10 @@ namespace Ex04.Menus.Delegates
 					Console.WriteLine(ex.Message);
 				}
 			}
+
 			return userInput;
 		}
+
 		private int getInputFromUser(int i_Options)
 		{
 			int userInputInt = 0;
@@ -75,14 +84,16 @@ namespace Ex04.Menus.Delegates
 			{
 				throw new Exception("Invalid choice");
 			}
+
 			valid = userInputInt < 0 || userInputInt > i_Options;
 			if (valid)
 			{
 				throw new Exception("Out of range");
 			}
-			return userInputInt;
 
+			return userInputInt;
 		}
+
 		public MenuItemDelegate MainMenu
 		{
 			get
