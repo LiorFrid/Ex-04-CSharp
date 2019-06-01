@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Ex04.Menus.Delegates
 {
-	public delegate void Method();
+	public delegate void MethodHandler();
 
 	public class MenuItemDelegate
 	{
-		public event Method Choosed;
+		public event MethodHandler Choosed;
 
 		private string m_Text;
 		private int m_Level;
